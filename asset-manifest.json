@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Calendar-Todo/static/css/main.2310b92c.css",
+    "main.js": "/Calendar-Todo/static/js/main.0ed5a9a1.js",
+    "static/js/787.f4b9e84d.chunk.js": "/Calendar-Todo/static/js/787.f4b9e84d.chunk.js",
+    "static/media/trash.svg": "/Calendar-Todo/static/media/trash.651e4b80a5cf605d66d782cd81f5645d.svg",
+    "static/media/plus.svg": "/Calendar-Todo/static/media/plus.2128e2044d5977f80d8c89e6256d83b8.svg",
+    "index.html": "/Calendar-Todo/index.html",
+    "static/media/calendar.svg": "/Calendar-Todo/static/media/calendar.ed5d27cf894682ce5571.svg",
+    "static/media/left-arrow.svg": "/Calendar-Todo/static/media/left-arrow.b819f3542e6c3f268f5c68d943c88398.svg",
+    "static/media/right-arrow.svg": "/Calendar-Todo/static/media/right-arrow.c9e2afb5db5c0c28ab1d92cf894026c2.svg",
+    "main.2310b92c.css.map": "/Calendar-Todo/static/css/main.2310b92c.css.map",
+    "main.0ed5a9a1.js.map": "/Calendar-Todo/static/js/main.0ed5a9a1.js.map",
+    "787.f4b9e84d.chunk.js.map": "/Calendar-Todo/static/js/787.f4b9e84d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2310b92c.css",
+    "static/js/main.0ed5a9a1.js"
+  ]
+}
