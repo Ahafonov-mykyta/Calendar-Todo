@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+  
+}
+
+.btn {
+    display: block;
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.plusIcon {
+    width: 35px;
+    height: 35px;
+    fill: aqua;
+}
+.header__title{
+    margin: 0;
+    padding: 0;
+    color: rgb(84, 96, 203);
+    font-weight: 200;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}

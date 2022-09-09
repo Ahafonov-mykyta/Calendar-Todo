@@ -1,0 +1,73 @@
+.cell {
+    
+        display: flex;
+        flex-direction: column;
+   padding: 0.3rem 0.5rem;
+   border: 1px solid rgba(97, 97, 97, 0.4);
+   overflow:auto;
+  
+}
+
+.dateWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+body{
+background-image: linear-gradient( 135deg, #b9f2ea 10%, #f296ca 100%);
+}
+
+.cell__date{
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.cell__day{
+    color: rgb(0, 0, 0);
+    font-weight: 100;
+}
+.cell__taskList{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.cell__task{
+    margin: 5px 0 0 0 ;
+    padding: 4px 10px ;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+
+}
+::-webkit-scrollbar {
+    width: 5px; 
+}     
+
+::-webkit-scrollbar-track {
+    background: none; 
+    border-radius: 20px;
+}  
+
+::-webkit-scrollbar-thumb {
+    background: #df7ee4; 
+    border-radius: 8px; 
+    border: 3px solid#8c8eff; 
+}
+
+.cell__disabled{
+    composes: cell;
+    opacity: 30%;
+
+}
+.cell__current{
+    composes: cell;
+    background-color:#a0eeaa;
+}
