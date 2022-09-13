@@ -1,20 +1,20 @@
-import Button from "@mui/material/Button";
-import * as React from "react";
-import TextField from "@mui/material/TextField";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { useReducer } from "react";
-import s from "./Form.module.css";
-import dayjs from "dayjs";
-import { nanoid } from "nanoid";
-import { ReactComponent as TrashIcon } from "../../img/trash.svg";
+import Button from '@mui/material/Button';
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { useReducer } from 'react';
+import s from './Form.module.css';
+import dayjs from 'dayjs';
+import { nanoid } from 'nanoid';
+import { ReactComponent as TrashIcon } from '../../img/trash.svg';
 
 const initialState = {
-  title: "",
-  description: "",
-  date: dayjs().format("DD/MM/YY"),
+  title: '',
+  description: '',
+  date: dayjs().format('DD/MM/YY'),
   time: dayjs(),
   edit: false,
   createOrUpdate: null,
@@ -22,20 +22,20 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case "id":
+    case 'id':
       return { ...state, id: action.payload };
-    case "title":
+    case 'title':
       return { ...state, title: action.payload };
-    case "description":
+    case 'description':
       return { ...state, description: action.payload };
-    case "date":
+    case 'date':
       return { ...state, date: action.payload };
-    case "time":
+    case 'time':
       return { ...state, time: action.payload };
-    case "edit":
+    case 'edit':
       return { ...state, edit: true };
-    case "createOrUpdate":
-      return { ...state, createOrUpdate: dayjs().format("DD.MM.YYYY HH:mm") };
+    case 'createOrUpdate':
+      return { ...state, createOrUpdate: dayjs().format('DD.MM.YYYY HH:mm') };
     default:
       return state;
   }
@@ -44,25 +44,36 @@ function reducer(state, action) {
 export default function Form({ setTasks, toggleModal, title, tasks, taskId }) {
   const [state, dispatch] = useReducer(
     reducer,
-    taskId ? tasks.find((task) => task.id === taskId) : initialState
+    taskId ? tasks.find(task => task.id === taskId) : initialState
   );
   const handleDelete = () => {
-    setTasks(tasks.filter((task) => task.id !== taskId));
+    setTasks(tasks.filter(task => task.id !== taskId));
     toggleModal();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (taskId) {
-      setTasks((prevState) =>
-        prevState.map((task) => (task.id === taskId ? state : task))
+      setTasks(prevState =>
+        prevState.map(task => (task.id === taskId ? state : task))
       );
       toggleModal();
       return;
     }
 
-    setTasks((prevState) => [...prevState, state]);
+    setTasks(prevState => [...prevState, state]);
     toggleModal();
+
+    // REST API realisation
+    // const deleteTask = async () => {
+    //     try {
+    //         const result = await axios.delete(`/task${taskId}`);
+    //         setTasks(tasks.filter((task) => task.id !== result));
+    //     }catch (error) {
+    //         throw new Error(error)
+    //     }
+    // }
+    // deleteTask()
   };
 
   return (
@@ -72,9 +83,9 @@ export default function Form({ setTasks, toggleModal, title, tasks, taskId }) {
         name="title"
         className={s.input}
         value={state.title}
-        onChange={(e) => {
+        onChange={e => {
           const value = e.target.value;
-          dispatch({ type: "title", payload: value });
+          dispatch({ type: 'title', payload: value });
         }}
         label="Title*"
       />
@@ -84,9 +95,9 @@ export default function Form({ setTasks, toggleModal, title, tasks, taskId }) {
         value={state.description}
         id="outlined-textarea"
         label="Description"
-        onChange={(e) => {
+        onChange={e => {
           const value = e.target.value;
-          dispatch({ type: "description", payload: value });
+          dispatch({ type: 'description', payload: value });
         }}
         rows={4}
         placeholder="Placeholder"
@@ -98,27 +109,27 @@ export default function Form({ setTasks, toggleModal, title, tasks, taskId }) {
           className={s.input}
           label="Date*"
           openTo="year"
-          views={["year", "month", "day"]}
+          views={['year', 'month', 'day']}
           value={state.date}
-          onChange={(newValue) => {
-            dispatch({ type: "date", payload: newValue });
+          onChange={newValue => {
+            dispatch({ type: 'date', payload: newValue });
           }}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={params => <TextField {...params} />}
         />
         <TimePicker
           name="time"
           className={s.input}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={params => <TextField {...params} />}
           value={state.time}
           label="Time"
-          onChange={(newValue) => {
-            dispatch({ type: "time", payload: newValue });
+          onChange={newValue => {
+            dispatch({ type: 'time', payload: newValue });
           }}
         />
       </LocalizationProvider>
       {taskId && (
         <span className={s.info}>
-          {state.edit ? "Updated at:" : "Created at:"} {state.createOrUpdate}
+          {state.edit ? 'Updated at:' : 'Created at:'} {state.createOrUpdate}
         </span>
       )}
       <div className={s.btnWrapper}>
@@ -132,11 +143,11 @@ export default function Form({ setTasks, toggleModal, title, tasks, taskId }) {
           variant="contained"
           disabled={state.title && state.date ? false : true}
           onClick={() => {
-            dispatch({ type: "createOrUpdate" });
+            dispatch({ type: 'createOrUpdate' });
             if (taskId) {
-              dispatch({ type: "edit" });
+              dispatch({ type: 'edit' });
             }
-            dispatch({ type: "id", payload: nanoid() });
+            dispatch({ type: 'id', payload: nanoid() });
           }}
         >
           SAVE
