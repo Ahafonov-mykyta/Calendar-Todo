@@ -1,7 +1,7 @@
 <h1> TODO Calendar app 📅</h1>
 
 
-<b>Functional:</b>
+<b>Functionality 🧰</b>
 <ul>
 <li>Ability to add a task for the selected date and time</li>
 <li>Ability to delete or change the task</li>
