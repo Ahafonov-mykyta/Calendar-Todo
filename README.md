@@ -1,4 +1,4 @@
-<h1> TODO Calendar app </h1>
+<h1> TODO Calendar app 📅</h1>
 
 
 <b>Functional:</b>
