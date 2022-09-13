@@ -18,6 +18,7 @@
 <li>WebPack </li>
 <li>React Hooks</li>
 <li>Mui library</li>
+<li>CSS module</li>
 </ul>
 
 
