@@ -63,17 +63,6 @@ export default function Form({ setTasks, toggleModal, title, tasks, taskId }) {
 
     setTasks(prevState => [...prevState, state]);
     toggleModal();
-
-    // REST API realisation
-    // const deleteTask = async () => {
-    //     try {
-    //         const result = await axios.delete(`/task${taskId}`);
-    //         setTasks(tasks.filter((task) => task.id !== result));
-    //     }catch (error) {
-    //         throw new Error(error)
-    //     }
-    // }
-    // deleteTask()
   };
 
   return (

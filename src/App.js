@@ -14,18 +14,6 @@ function App() {
         localStorage.setItem('monthAndYear', JSON.stringify(monthAndYear));
     }, [tasks,monthAndYear])
 
-     // REST API realisation
-    // useEffect(() => {
-    //     const getTask = async () => {
-    //         try {
-    //             const result = await axios.get('/task');
-    //             setTasks(result.data)
-    //         } catch (error) {
-    //             throw new Error(error)
-    //         }
-    //     }
-    //     getTask()
-    // }, [])
 
     const handleButtonClick = (e) => {
         const name = e.currentTarget.name;
