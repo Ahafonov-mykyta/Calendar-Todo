@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -145,3 +146,11 @@ export default function Form({ setTasks, toggleModal, title, tasks, taskId }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  toggleModal: PropTypes.func,
+  title: PropTypes.string,
+  setTasks: PropTypes.func,
+  tasks: PropTypes.array,
+  taskId: PropTypes.string,
+};

@@ -1,8 +1,10 @@
-import DatePicker from "./datePicker/DatePicker";
-import { useState } from "react";
-import TransitionsModal from "../Modal/Modal";
-import { ReactComponent as PlusIcon } from "../../img/plus.svg";
-import s from "./Header.module.css";
+import DatePicker from './datePicker/DatePicker';
+import { useState } from 'react';
+import TransitionsModal from '../Modal/Modal';
+import { ReactComponent as PlusIcon } from '../../img/plus.svg';
+import s from './Header.module.css';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Header = ({
   monthAndYear,
@@ -23,7 +25,7 @@ const Header = ({
         <TransitionsModal
           setTasks={setTasks}
           toggleModal={toggleModal}
-          title={"Add new idea"}
+          title={'Add new idea'}
         />
       )}
       <h1 className={s.header__title}>Calendar ToDo</h1>
@@ -37,3 +39,10 @@ const Header = ({
 };
 
 export default Header;
+
+Header.propTypes = {
+  setMonthAndYear: PropTypes.func,
+  handleButtonClick: PropTypes.func,
+  monthAndYear: PropTypes.string,
+  setTasks: PropTypes.func,
+};

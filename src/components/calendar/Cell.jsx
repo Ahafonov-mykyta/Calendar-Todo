@@ -2,6 +2,8 @@ import s from './Cell.module.css';
 import { useState } from 'react';
 import TransitionsModal from '../Modal/Modal';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Cell = ({
   date,
@@ -15,7 +17,7 @@ const Cell = ({
   const [modalIsActive, setModalIsActive] = useState(false);
   const [idTask, setIdTask] = useState(null);
 
-  const disabledDays = dateOfCell => {
+  const disabledDays = () => {
     if (cell.format('MM') !== monthAndYear.format('MM')) {
       return s.cell__disabled;
     }
@@ -70,3 +72,13 @@ const Cell = ({
   );
 };
 export default Cell;
+
+Cell.propTypes = {
+  date: PropTypes.string,
+  day: PropTypes.string,
+  arrayOfTasks: PropTypes.array,
+  setTasks: PropTypes.func,
+  tasks: PropTypes.array,
+  cell: PropTypes.string,
+  monthAndYear: PropTypes.string,
+};

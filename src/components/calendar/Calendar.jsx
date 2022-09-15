@@ -3,6 +3,8 @@ import Cell from './Cell';
 import s from './Calendar.module.css';
 import { fillMonthArray } from '../../helpers/fillMonthArray';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Calendar = ({ monthAndYear, tasks, setTasks }) => {
   const [arrayOfCells, setArrayOfCells] = useState(() => fillMonthArray());
@@ -33,3 +35,9 @@ const Calendar = ({ monthAndYear, tasks, setTasks }) => {
 };
 
 export default Calendar;
+
+Calendar.propTypes = {
+  tasks: PropTypes.array,
+  monthAndYear: PropTypes.string,
+  setTasks: PropTypes.func,
+};
